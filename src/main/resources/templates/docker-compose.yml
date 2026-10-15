@@ -1,12 +1,12 @@
 version: '3.8'
+
 services:
-  testcli:
-    build: ../../../..
-    container_name: playwright-json-cli
-    volumes:
-      - ./features:/app/features
-      - ./payloads:/app/payloads
-      - ./evidencias:/app/evidencias
-      - ./.env:/app/.env
-    stdin_open: true
-    tty: true
+  playwright:
+    image: mcr.microsoft.com/playwright/java:v1.45.0-jammy
+    container_name: playwright-service
+    ports:
+      - "8080:8080" # Ou a porta que o seu driver/serviço utilize
+    environment:
+      - DISPLAY=:99
+    # Mantém o container rodando ou aguardando comandos
+    command: tail -f /dev/null
