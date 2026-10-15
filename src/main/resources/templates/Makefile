@@ -6,10 +6,10 @@
 
 up:
 	# Constrói e executa o Dockerfile/Compose para subir o ambiente
-	docker compose up -d --build
+	docker compose up -d
 	@echo "🚀 Infraestrutura iniciada com sucesso!"
 
 down:
 	# Encerra os containers e remove imagens/cache órfãs para liberar memória
-	docker compose down --rmi local --remove-orphans
+	docker compose down
 	@echo "🛑 Infraestrutura encerrada e limpa da memória."
