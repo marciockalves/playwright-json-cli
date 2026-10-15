@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  testcli:
+    build: ../../../..
+    container_name: playwright-json-cli
+    volumes:
+      - ./features:/app/features
+      - ./payloads:/app/payloads
+      - ./evidencias:/app/evidencias
+      - ./.env:/app/.env
+    stdin_open: true
+    tty: true
